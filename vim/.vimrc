@@ -1,0 +1,68 @@
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'fatih/vim-go'
+Plugin 'powerline/powerline'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Here is options added by Andy
+syntax on
+set number
+set cmdheight=2
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set wildmenu
+set so=7
+set encoding=utf-8
+set backspace=indent,eol,start
+
+set clipboard=unnamed
+set nobackup
+set nowb
+set noswapfile
+set ffs=unix,dos,mac
+
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set ai
+set si
+
+colorscheme peaksea
+set background=dark
+set laststatus=2
+set cursorline
+hi CursorLine ctermbg=239
+" set cursorcolumn
+
+" Powerline, both python2 and python3 version
+try
+    python from powerline.vim import setup as powerline_setup
+    python powerline_setup()
+    python del powerline_setup
+catch
+    try
+        python3 from powerline.vim import setup as powerline_setup
+        python3 powerline_setup()
+        python3 del powerline_setup
+    endtry
+endtry
+
+" IndentGuides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup = 1
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=237
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
